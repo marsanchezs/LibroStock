@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MainActivity">
+
+    <item
+        android:id="@+id/menuBuscar"
+        android:title="@string/buscar"
+        android:icon="@drawable/icono_buscar4"
+        app:showAsAction="always" />
+
+    <!-- MENÚ -->
+    <item android:id="@+id/menuInformacion"
+        android:title="@string/informacion" />
+
+    <item android:id="@+id/menuSalir"
+        android:title="@string/salir" />
+
+</menu>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorFondoBarraHerramientas"
+    android:theme="@style/Toolbar">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:ignore="UselessParent">
+
+            <AutoCompleteTextView
+                android:id="@+id/edtBuscarLibroBHB"
+                style="@style/texto"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:hint="@string/buscar2"
+                android:inputType="textPersonName"
+                android:textSize="30sp"
+                android:textColor="@color/colorLetraBarraHerramientas"
+                android:textColorHint="@color/colorLetraBarraHerramientas"
+                app:backgroundTint="@color/colorLetraBarraHerramientas"
+                tools:ignore="Autofill" />
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:gravity="end">
+
+                <ImageButton
+                    android:id="@+id/btnBuscarLibroBHB"
+                    android:background="@color/colorLetraBarraHerramientas"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:padding="5dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"
+                    android:layout_gravity="center_vertical"
+                    app:srcCompat="@drawable/icono_buscar4"
+                    android:contentDescription="@string/icono" />
+            </TableRow>
+
+        </TableRow>
+
+    </LinearLayout>
+
+</androidx.appcompat.widget.Toolbar>

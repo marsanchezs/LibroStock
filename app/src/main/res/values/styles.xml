@@ -1,0 +1,58 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="imagen_boton">
+        <item name="android:layout_width">30dp</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginRight">5dp</item>
+        <item name="android:layout_marginEnd">5dp</item>
+        <item name="android:adjustViewBounds">true</item>
+        <item name="android:scaleType">fitCenter</item>
+    </style>
+
+    <!-- TOOLBAR -->
+    <style name="Toolbar" parent="Theme.AppCompat">
+        <item name="android:fontFamily">@font/mrsmonster</item>
+        <item name="android:textColorSecondary">@color/colorMenu</item>
+        <item name="android:textColor">@color/colorMenu</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <!-- PESTAÑAS -->
+    <style name="tabs" parent="@android:style/TextAppearance.Widget.TabWidget">
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/mrsmonster</item>
+    </style>
+
+    <!-- BOTONES -->
+    <style name="boton">
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">45sp</item>
+        <item name="android:fontFamily">@font/mrsmonster</item>
+    </style>
+
+    <!-- TEXTOS -->
+    <style name="texto">
+        <item name="android:paddingLeft">15dp</item>
+        <item name="android:paddingStart">15dp</item>
+        <item name="android:paddingRight">15dp</item>
+        <item name="android:paddingEnd">15dp</item>
+        <item name="android:textSize">40sp</item>
+        <item name="android:fontFamily">@font/mrsmonster</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- ESPACIOS -->
+    <style name="espacio">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">25dp</item>
+    </style>
+
+</resources>

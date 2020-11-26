@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorFondo"
+    tools:context=".MainActivity">
+
+    <include layout="@layout/barra_herramientas"
+        android:id="@+id/miBarraHerramientas"/>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorFondoBarraHerramientas"
+        app:tabTextColor="@color/colorLetraBarraHerramientas"
+        app:tabTextAppearance="@style/tabs">
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabListaLibros"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/icono_lista2"
+            android:text="@string/listadoLibros" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabAgregarLibro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/icono_agregar"
+            android:text="@string/agregarLibro" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabAgregarAutor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/icono_autor3"
+            android:text="@string/agregarAutor" />
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/visor"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </androidx.viewpager.widget.ViewPager>
+
+</LinearLayout>

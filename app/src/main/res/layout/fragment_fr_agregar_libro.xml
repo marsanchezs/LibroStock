@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorFondoAgregarLibro"
+    tools:context=".Fragments.frAgregarLibro">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/borde_libro">
+
+            <EditText
+                android:id="@+id/edtTituloLibroFRAL"
+                style="@style/texto"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:ems="10"
+                android:hint="@string/tituloLibro"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                android:textColor="@color/colorLetraAgregarLibro"
+                android:textColorHint="@color/colorLetraAgregarLibro"
+                android:imeOptions="actionNext"
+                app:backgroundTint="@color/colorLetraAgregarLibro"
+                tools:ignore="Autofill" />
+        </FrameLayout>
+
+        <Space style="@style/espacio" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/borde_libro">
+
+            <EditText
+                android:id="@+id/edtAutorLibroFRAL"
+                style="@style/texto"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:ems="10"
+                android:hint="@string/autorLibro"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                android:textColor="@color/colorLetraAgregarLibro"
+                android:textColorHint="@color/colorLetraAgregarLibro"
+                android:imeOptions="actionNext"
+                app:backgroundTint="@color/colorLetraAgregarLibro"
+                tools:ignore="Autofill" />
+        </FrameLayout>
+
+        <Space style="@style/espacio" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/borde_libro">
+
+            <AutoCompleteTextView
+                android:id="@+id/edtGeneroLibroFRAL"
+                style="@style/texto"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:ems="10"
+                android:hint="@string/generoLibro"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                android:textColor="@color/colorLetraAgregarLibro"
+                android:textColorHint="@color/colorLetraAgregarLibro"
+                android:imeOptions="actionNext"
+                app:backgroundTint="@color/colorLetraAgregarLibro"
+                tools:ignore="Autofill" />
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/btnAgregarFRAL"
+            style="@style/boton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorBotonAgregarLibro"
+            android:padding="10dp"
+            android:text="@string/agregar"
+            android:textColor="@color/colorLetraAgregarLibro" />
+
+    </TableRow>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

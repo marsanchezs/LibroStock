@@ -1,0 +1,38 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">LibroStock</string>
+    <string name="icono">Ícono</string>
+    <string name="listadoLibros">Lista de Libros</string>
+    <string name="agregarLibro">Agregar Libro</string>
+    <string name="agregar">Agregar</string>
+    <string name="agregarAutor" tools:ignore="Typos">Agregar Autor</string>
+    <string name="nombreAutor" tools:ignore="Typos">Ingresar Nombre</string>
+    <string name="apellidoAutor" tools:ignore="Typos">Ingresar Apellido</string>
+    <string name="paisAutor" tools:ignore="Typos">Ingresar País</string>
+    <string name="tituloLibro" tools:ignore="Typos">Ingresar Título</string>
+    <string name="autorLibro" tools:ignore="Typos">Ingresar Autor</string>
+    <string name="generoLibro" tools:ignore="Typos">Ingresar Género</string>
+    <string name="buscar" tools:ignore="Typos">Buscar</string>
+    <string name="buscar2" tools:ignore="Typos">Buscar…</string>
+    <string name="informacion" tools:ignore="Typos">Información</string>
+    <string name="salir" tools:ignore="Typos">Salir</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- PAÍSES -->
+    <string-array name="paises">
+        <item>Seleccione</item>
+        <!-- AMÉRICA DEL SUR -->
+        <item>Argentina</item>
+        <item>Bolivia</item>
+        <item>Brasil</item>
+        <item>Chile</item>
+        <item>Colombia</item>
+        <item>Ecuador</item>
+        <item>Guyana</item>
+        <item>Paraguay</item>
+        <item>Perú</item>
+        <item>Surinam</item>
+        <item>Uruguay</item>
+        <item>Venezuela</item>
+    </string-array>
+</resources>

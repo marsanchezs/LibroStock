@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+
+    <color name="colorFondo">#4CAF50</color>
+
+    <color name="colorMenu">#CDDC39</color>
+
+    <color name="colorFondoListaDesplegable">#404140</color>
+    <color name="colorLetraListaDesplegable">#CDDC39</color>
+
+    <color name="colorFondoBarraHerramientas">#404140</color>
+    <color name="colorLetraBarraHerramientas">#CDDC39</color>
+    <color name="colorBotonBarraHerramientas">#AE593D</color>
+
+    <color name="colorFondoListaLibros">#E662580A</color>
+    <color name="colorLetraListaLibro">#FFEB3B</color>
+    <color name="colorBotonListaLibro">#DC9A39</color>
+    <color name="colorBordeListaLibro">#965D08</color>
+
+    <color name="colorFondoAgregarLibro">#E6C14545</color>
+    <color name="colorLetraAgregarLibro">#660101</color>
+    <color name="colorBotonAgregarLibro">#CF1E11</color>
+    <color name="colorBordeLibro">#660101</color>
+
+    <color name="colorFondoAgregarAutor">#E6045607</color>
+    <color name="colorLetraAgregarAutor">#BF7AAA6D</color>
+    <color name="colorBotonAgregarAutor">#1C2F08</color>
+    <color name="colorBordeAutor">#BF7AAA6D</color>
+
+    <color name="colorTab">#BF17629D</color>
+    <color name="colorLetraTab">#D5DD85</color>
+
+</resources>
