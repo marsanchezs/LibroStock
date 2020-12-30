@@ -11,6 +11,12 @@
         app:showAsAction="always" />
 
     <!-- MENÚ -->
+    <item android:id="@+id/menuReportes"
+    android:title="@string/reportes" />
+
+    <item android:id="@+id/menuEstadisticas"
+        android:title="@string/estadisticas" />
+
     <item android:id="@+id/menuInformacion"
         android:title="@string/informacion" />
 

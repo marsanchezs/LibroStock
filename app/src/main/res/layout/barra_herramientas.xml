@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             tools:ignore="UselessParent">
 
-            <ImageView
+            <!--<ImageView
                 android:id="@+id/imgBarraHerramientas"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
@@ -25,11 +25,15 @@
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
                 android:contentDescription="@string/icono"
-                app:srcCompat="@drawable/icono_libro2" />
+                app:srcCompat="@drawable/icono_libro2" />-->
 
             <TextView
                 android:id="@+id/barraHerramientasTitulo"
                 style="@style/texto"
+                android:paddingStart="12dp"
+                android:paddingLeft="12dp"
+                android:paddingEnd="12dp"
+                android:paddingRight="12dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"

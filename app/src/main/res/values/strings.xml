@@ -14,25 +14,22 @@
     <string name="buscar" tools:ignore="Typos">Buscar</string>
     <string name="buscar2" tools:ignore="Typos">Buscar…</string>
     <string name="informacion" tools:ignore="Typos">Información</string>
+    <string name="reportes" tools:ignore="Typos">Reportes</string>
+    <string name="estadisticas" tools:ignore="Typos">Estadísticas</string>
     <string name="salir" tools:ignore="Typos">Salir</string>
+    <string name="tituloFL" tools:ignore="Typos">Título</string>
+    <string name="autorFL" tools:ignore="Typos">Autor</string>
+    <string name="generoFL" tools:ignore="Typos">Género</string>
+    <string name="sexo" tools:ignore="Typos">Sexo</string>
+    <string name="masculino" tools:ignore="Typos">Masculino</string>
+    <string name="femenino" tools:ignore="Typos">Femenino</string>
+    <string name="editar" tools:ignore="Typos">Editar</string>
+    <string name="eliminar" tools:ignore="Typos">Eliminar</string>
+    <string name="sinLibros" tools:ignore="Typos">Sin Libros</string>
+    <string name="tituloDetalleLibro">Detalle Libro</string>
+    <string name="precaucion">Precaución</string>
+    <string name="mensaje">Mensaje</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-    <!-- PAÍSES -->
-    <string-array name="paises">
-        <item>Seleccione</item>
-        <!-- AMÉRICA DEL SUR -->
-        <item>Argentina</item>
-        <item>Bolivia</item>
-        <item>Brasil</item>
-        <item>Chile</item>
-        <item>Colombia</item>
-        <item>Ecuador</item>
-        <item>Guyana</item>
-        <item>Paraguay</item>
-        <item>Perú</item>
-        <item>Surinam</item>
-        <item>Uruguay</item>
-        <item>Venezuela</item>
-    </string-array>
 </resources>

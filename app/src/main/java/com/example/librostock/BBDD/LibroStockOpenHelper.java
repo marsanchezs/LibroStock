@@ -20,12 +20,13 @@ public class LibroStockOpenHelper extends SQLiteOpenHelper {
         //TABLA LIBROS
         db.execSQL("CREATE TABLE LIBROS (Id INTEGER PRIMARY KEY AUTOINCREMENT, TITULO TEXT, AUTOR TEXT, GENERO TEXT) ");
         //TABLA AUTORES
-        db.execSQL("CREATE TABLE AUTORES (Id INTEGER PRIMARY KEY AUTOINCREMENT, NOMBRE TEXT, APELLIDO TEXT, PAIS TEXT) ");
+        db.execSQL("CREATE TABLE AUTORES (Id INTEGER PRIMARY KEY AUTOINCREMENT, NOMBRE TEXT, PAIS TEXT, SEXO TEXT) ");
         //TABLA GÉNEROS
         db.execSQL("CREATE TABLE GENEROS (Id INTEGER PRIMARY KEY AUTOINCREMENT, NOMBRE TEXT) ");
         //TABLA PAISES
         db.execSQL("CREATE TABLE PAISES (Id INTEGER PRIMARY KEY AUTOINCREMENT, NOMBRE TEXT) ");
 
+        cargarAutores(db);
         cargarGeneros(db);
         cargarPaises(db);
 
@@ -34,6 +35,11 @@ public class LibroStockOpenHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
+    }
+
+    private void cargarAutores(SQLiteDatabase db){
+        db.execSQL("INSERT INTO AUTORES (NOMBRE, PAIS, SEXO) VALUES ('Anónimo', 'N/A', 'N/A')");
+        db.execSQL("INSERT INTO AUTORES (NOMBRE, PAIS, SEXO) VALUES ('Varios Autores', 'N/A', 'N/A')");
     }
 
     private void cargarGeneros(SQLiteDatabase db){

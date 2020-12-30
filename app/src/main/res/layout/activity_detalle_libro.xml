@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetalleLibro">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorFondo"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <include layout="@layout/barra_herramientas"
+            android:id="@+id/miBarraHerramientasDL"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <Space style="@style/espacio2" />
+
+            <ImageView
+                android:id="@+id/imgLibroDL"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/icono_terror"
+                android:contentDescription="@string/icono" />
+
+            <TextView
+                android:id="@+id/txtTituloDL"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                style="@style/texto"
+                android:text="@string/tituloFL"
+                android:textSize="60sp"
+                android:textAlignment="center"/>
+
+            <Space style="@style/espacio2" />
+
+            <TextView
+                android:id="@+id/txtAutorDL"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                style="@style/texto"
+                android:text="@string/autorFL"
+                android:textSize="50sp"
+                android:textAlignment="center"/>
+
+            <Space style="@style/espacio2" />
+
+            <TextView
+                android:id="@+id/txtGeneroDL"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                style="@style/texto"
+                android:text="@string/generoFL"
+                android:textSize="40sp"
+                android:textAlignment="center"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

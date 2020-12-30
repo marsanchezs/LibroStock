@@ -45,14 +45,20 @@
         <item name="android:paddingRight">15dp</item>
         <item name="android:paddingEnd">15dp</item>
         <item name="android:textSize">40sp</item>
+        <item name="android:textColor">@color/colorLetra</item>
+        <item name="android:textColorHint">@color/colorLetra</item>
         <item name="android:fontFamily">@font/mrsmonster</item>
-        <item name="android:textStyle">bold</item>
     </style>
 
     <!-- ESPACIOS -->
     <style name="espacio">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">25dp</item>
+    </style>
+
+    <style name="espacio2">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">10dp</item>
     </style>
 
 </resources>

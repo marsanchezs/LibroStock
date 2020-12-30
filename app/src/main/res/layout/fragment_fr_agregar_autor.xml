@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorFondoAgregarAutor"
+    android:background="@color/colorFondo"
     tools:context=".Fragments.frAgregarAutor">
 
     <!-- TODO: Update blank fragment layout -->
@@ -12,7 +12,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="25dp"
+        android:paddingTop="15dp"
+        android:paddingStart="35dp"
+        android:paddingEnd="35dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -20,21 +22,20 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/borde_autor">
+            android:background="@drawable/borde">
 
             <EditText
                 android:id="@+id/edtNombreAutorFRAA"
                 style="@style/texto"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="45dp"
+                android:textSize="25sp"
                 android:ems="10"
                 android:hint="@string/nombreAutor"
                 android:inputType="textPersonName"
                 android:textAlignment="center"
-                android:textColor="@color/colorLetraAgregarAutor"
-                android:textColorHint="@color/colorLetraAgregarAutor"
                 android:imeOptions="actionNext"
-                app:backgroundTint="@color/colorLetraAgregarAutor"
+                app:backgroundTint="@color/colorLetra"
                 tools:ignore="Autofill" />
 
             <ImageView
@@ -43,63 +44,28 @@
                 android:layout_gravity="center_vertical|end"
                 android:contentDescription="@string/icono"
                 android:visibility="gone"
-                android:onClick="limpiarValeTipo"
-                app:srcCompat="@drawable/icono_cancelar_fraa" />
+                app:srcCompat="@drawable/icono_cancelar" />
         </FrameLayout>
 
-        <Space style="@style/espacio" />
+        <Space style="@style/espacio2" />
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/borde_autor">
-
-            <EditText
-                android:id="@+id/edtApellidoAutorFRAA"
-                style="@style/texto"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:ems="10"
-                android:hint="@string/apellidoAutor"
-                android:inputType="textPersonName"
-                android:textAlignment="center"
-                android:textColor="@color/colorLetraAgregarAutor"
-                android:textColorHint="@color/colorLetraAgregarAutor"
-                android:imeOptions="actionNext"
-                app:backgroundTint="@color/colorLetraAgregarAutor"
-                tools:ignore="Autofill" />
-
-            <ImageView
-                android:id="@+id/imgLimpiarApellidoFRAA"
-                style="@style/imagen_boton"
-                android:layout_gravity="center_vertical|end"
-                android:contentDescription="@string/icono"
-                android:visibility="gone"
-                android:onClick="limpiarValeTipo"
-                app:srcCompat="@drawable/icono_cancelar_fraa" />
-        </FrameLayout>
-
-        <Space style="@style/espacio" />
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/borde_autor">
+            android:background="@drawable/borde">
 
             <AutoCompleteTextView
                 android:id="@+id/edtPaisAutorFRAA"
                 style="@style/texto"
-                android:entries="@array/paises"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="45dp"
+                android:textSize="25sp"
                 android:ems="10"
                 android:hint="@string/paisAutor"
                 android:inputType="textPersonName"
                 android:textAlignment="center"
-                android:textColor="@color/colorLetraAgregarAutor"
-                android:textColorHint="@color/colorLetraAgregarAutor"
                 android:imeOptions="actionNext"
-                app:backgroundTint="@color/colorLetraAgregarAutor"
+                app:backgroundTint="@color/colorLetra"
                 tools:ignore="Autofill" />
 
             <ImageView
@@ -108,9 +74,52 @@
                 android:layout_gravity="center_vertical|end"
                 android:contentDescription="@string/icono"
                 android:visibility="gone"
-                android:onClick="limpiarValeTipo"
-                app:srcCompat="@drawable/icono_cancelar_fraa" />
+                app:srcCompat="@drawable/icono_cancelar" />
         </FrameLayout>
+
+        <Space style="@style/espacio2" />
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/borde"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_gravity="center">
+
+            <TextView
+                android:id="@+id/txtSexoFRAA"
+                style="@style/texto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textSize="25sp"
+                android:text="@string/sexo" />
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <RadioButton
+                    android:id="@+id/rbMasculinoFRAL"
+                    style="@style/texto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    android:text="@string/masculino"
+                    android:checked="true"
+                    app:buttonTint="@color/colorLetra" />
+
+                <RadioButton
+                    android:id="@+id/rbFemeninoFRAL"
+                    style="@style/texto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    android:text="@string/femenino"
+                    app:buttonTint="@color/colorLetra" />
+            </RadioGroup>
+        </TableRow>
 
     </LinearLayout>
 
@@ -125,12 +134,12 @@
 
         <Button
             android:id="@+id/btnAgregarFRAA"
-            android:background="@color/colorBotonAgregarAutor"
+            android:background="@color/colorBoton"
             style="@style/boton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:textColor="@color/colorLetraAgregarAutor"
+            android:textColor="@color/colorLetra"
             android:text="@string/agregar" />
 
     </TableRow>

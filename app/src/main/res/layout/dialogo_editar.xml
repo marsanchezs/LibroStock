@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorFondo">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:id="@+id/imgDED"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/icono_alerta"
+                android:contentDescription="@string/icono" />
+
+            <TextView
+                android:id="@+id/txtTituloDED"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/texto"
+                android:textSize="30sp"
+                android:layout_gravity="center_vertical"
+                android:text="@string/editar" />
+        </TableRow>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="35dp"
+            android:paddingEnd="35dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/borde">
+
+                <EditText
+                    android:id="@+id/edtTituloLibroDED"
+                    style="@style/texto"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:textSize="20sp"
+                    android:ems="10"
+                    android:hint="@string/tituloFL"
+                    android:inputType="textPersonName"
+                    android:textAlignment="center"
+                    android:imeOptions="actionNext"
+                    app:backgroundTint="@color/colorLetra"
+                    tools:ignore="Autofill" />
+
+                <ImageView
+                    android:id="@+id/imgLimpiarTituloDED"
+                    style="@style/imagen_boton"
+                    android:layout_gravity="center_vertical|end"
+                    android:contentDescription="@string/icono"
+                    android:visibility="visible"
+                    app:srcCompat="@drawable/icono_cancelar" />
+            </FrameLayout>
+
+            <Space style="@style/espacio2" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/borde">
+
+                <AutoCompleteTextView
+                    android:id="@+id/edtAutorLibroDED"
+                    style="@style/texto"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:textSize="20sp"
+                    android:ems="10"
+                    android:hint="@string/autorFL"
+                    android:inputType="textPersonName"
+                    android:textAlignment="center"
+                    android:imeOptions="actionNext"
+                    app:backgroundTint="@color/colorLetra"
+                    tools:ignore="Autofill" />
+
+                <ImageView
+                    android:id="@+id/imgLimpiarAutorDED"
+                    style="@style/imagen_boton"
+                    android:layout_gravity="center_vertical|end"
+                    android:contentDescription="@string/icono"
+                    android:visibility="visible"
+                    app:srcCompat="@drawable/icono_cancelar" />
+            </FrameLayout>
+
+            <Space style="@style/espacio2" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/borde">
+
+                <AutoCompleteTextView
+                    android:id="@+id/edtGeneroLibroDED"
+                    style="@style/texto"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:ems="10"
+                    android:hint="@string/generoFL"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPersonName"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    app:backgroundTint="@color/colorLetra"
+                    tools:ignore="Autofill" />
+
+                <ImageView
+                    android:id="@+id/imgLimpiarGeneroDED"
+                    style="@style/imagen_boton"
+                    android:layout_gravity="center_vertical|end"
+                    android:contentDescription="@string/icono"
+                    android:visibility="visible"
+                    app:srcCompat="@drawable/icono_cancelar" />
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:layout_gravity="center">
+
+            <ImageButton
+                android:id="@+id/btnConfirmarDED"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:background="@drawable/icono_aceptar"
+                android:contentDescription="@string/icono"
+                android:scaleType="fitCenter" />
+
+            <ImageButton
+                android:id="@+id/btnCancelarDED"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:background="@drawable/icono_cancelar2"
+                android:contentDescription="@string/icono"
+                android:scaleType="fitCenter" />
+        </TableRow>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

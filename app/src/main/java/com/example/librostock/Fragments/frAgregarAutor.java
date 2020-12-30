@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -18,11 +19,12 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.example.librostock.BBDD.LibroStockDelegar;
-import com.example.librostock.Interfaces.InterfazFragment;
 import com.example.librostock.MainActivity;
+import com.example.librostock.Objetos.Autor;
 import com.example.librostock.R;
 
 import org.json.JSONException;
@@ -34,8 +36,9 @@ public class frAgregarAutor extends Fragment {
 
     private AutoCompleteTextView edtPaisAutor;
     private Button btnAgregarAutor;
-    private EditText edtNombreAutor, edtApellidoAutor;
-    private ImageView imgLimpiarNombre, imgLimpiarApellido, imgLimpiarPais;
+    private EditText edtNombreAutor;
+    private RadioButton rbMasculino, rbFemenino;
+    private ImageView imgLimpiarNombre, imgLimpiarPais;
     private LibroStockDelegar delegar = new LibroStockDelegar();
 
     @Override
@@ -45,10 +48,10 @@ public class frAgregarAutor extends Fragment {
         View vista = inflater.inflate(R.layout.fragment_fr_agregar_autor, container, false);
 
         edtNombreAutor = (EditText) vista.findViewById(R.id.edtNombreAutorFRAA);
-        edtApellidoAutor = (EditText) vista.findViewById(R.id.edtApellidoAutorFRAA);
+        rbMasculino = (RadioButton) vista.findViewById(R.id.rbMasculinoFRAL);
+        rbFemenino = (RadioButton) vista.findViewById(R.id.rbFemeninoFRAL);
         edtPaisAutor = (AutoCompleteTextView) vista.findViewById(R.id.edtPaisAutorFRAA);
         imgLimpiarNombre = (ImageView) vista.findViewById(R.id.imgLimpiarNombreFRAA);
-        imgLimpiarApellido = (ImageView) vista.findViewById(R.id.imgLimpiarApellidoFRAA);
         imgLimpiarPais = (ImageView) vista.findViewById(R.id.imgLimpiarPaisFRAA);
         btnAgregarAutor = (Button) vista.findViewById(R.id.btnAgregarFRAA);
 
@@ -70,7 +73,6 @@ public class frAgregarAutor extends Fragment {
     //MÉTODOS
     private void mostrarBotonesLimpiar(){
         mostrarBotonLimpiarNombre();
-        mostrarBotonLimpiarApellido();
         mostrarBotonLimpiarPais();
     }
 
@@ -112,37 +114,6 @@ public class frAgregarAutor extends Fragment {
         imgLimpiarPais.setVisibility(View.GONE);
     }
 
-    private void mostrarBotonLimpiarApellido(){
-        imgLimpiarApellido.setOnClickListener( new View.OnClickListener() {
-            public void onClick(View view){
-                limpiarApellido();
-            }
-        });
-
-        edtApellidoAutor.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) { }
-
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                if(edtApellidoAutor.getText().toString().length() == 0){
-                    imgLimpiarApellido.setVisibility(View.GONE);
-                }else{
-                    imgLimpiarApellido.setVisibility(View.VISIBLE);
-                }
-            }
-        });
-    }
-
-    private void limpiarApellido(){
-        edtApellidoAutor.setText("");
-        edtApellidoAutor.requestFocus();
-        imgLimpiarApellido.setVisibility(View.GONE);
-    }
-
     private void mostrarBotonLimpiarNombre(){
         imgLimpiarNombre.setOnClickListener( new View.OnClickListener() {
             public void onClick(View view){
@@ -177,18 +148,14 @@ public class frAgregarAutor extends Fragment {
     private void validar(){
         Context contexto = getActivity();
         String nombre = edtNombreAutor.getText().toString();
-        String apellido = edtApellidoAutor.getText().toString();
         String pais = edtPaisAutor.getText().toString();
         String mensaje = "SIN MENSAJE";
-        if((nombre.isEmpty()) && (apellido.isEmpty()) && (pais.isEmpty())){
+        if((nombre.isEmpty()) && (pais.isEmpty())){
             mensaje = "DEBE INGRESAR TODOS LOS DATOS";
             Toast.makeText(contexto, mensaje, Toast.LENGTH_SHORT).show();
         }else if(nombre.isEmpty()){
             mensaje = "INGRESAR NOMBRE";
             edtNombreAutor.setError(mensaje);
-        }else if(apellido.isEmpty()){
-            mensaje = "INGRESAR APELLIDO";
-            edtApellidoAutor.setError(mensaje);
         }else if(pais.isEmpty()){
             mensaje = "INGRESAR PAÍS";
             edtPaisAutor.setError(mensaje);
@@ -199,12 +166,44 @@ public class frAgregarAutor extends Fragment {
     }
 
     private void agregarAutor(){
-        Context contexto = getActivity();
         String nombre = edtNombreAutor.getText().toString();
-        String apellido = edtApellidoAutor.getText().toString();
         String pais = edtPaisAutor.getText().toString();
-        String mensaje = "NOMBRE: "+nombre+" APELLIDO: "+apellido+" PAÍS: "+pais;
-        Toast.makeText(contexto, mensaje, Toast.LENGTH_SHORT).show();
+        Autor autor = new Autor();
+        autor.setNombre(nombre);
+        autor.setPais(pais);
+        if(rbMasculino.isChecked()){
+            autor.setSexo("Masculino");
+        }else if(rbFemenino.isChecked()){
+            autor.setSexo("Femenino");
+        }
+        validarAutor(autor);
+    }
+
+    private void validarAutor(Autor autor){
+        Context contexto = getActivity();
+        String mensaje = "";
+        String respuestaValidarAutor = delegar.validarAutor(contexto, autor);
+        if(respuestaValidarAutor.equals("AUTOR EXISTE")){
+            if(autor.getSexo().equals("Masculino")){
+                mensaje = autor.getNombre().toUpperCase()+" YA SE ENCUENTRA AGREGADO";
+            }else if(autor.getSexo().equals("Femenino")){
+                mensaje = autor.getNombre().toUpperCase()+" YA SE ENCUENTRA AGREGADA";
+            }
+            Toast.makeText(contexto, mensaje, Toast.LENGTH_SHORT).show();
+        }else{
+            String respuestaAgregarAutor = delegar.agregarAutor(contexto, autor);
+            if(respuestaAgregarAutor.equals("OK")){
+                if(autor.getSexo().equals("Masculino")){
+                    mensaje = autor.getNombre().toUpperCase()+" HA SIDO AGREGADO";
+                }else if(autor.getSexo().equals("Femenino")){
+                    mensaje = autor.getNombre().toUpperCase()+" HA SIDO AGREGADA";
+                }
+                Toast.makeText(contexto, mensaje, Toast.LENGTH_SHORT).show();
+                limpiar();
+            }else{
+                Toast.makeText(contexto, respuestaAgregarAutor, Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     private void traerPaises() {
@@ -231,7 +230,12 @@ public class frAgregarAutor extends Fragment {
 
             }
         });
+    }
 
+    private void limpiar(){
+        edtNombreAutor.setText("");
+        edtPaisAutor.setText("");
+        edtNombreAutor.requestFocus();
     }
 
 }

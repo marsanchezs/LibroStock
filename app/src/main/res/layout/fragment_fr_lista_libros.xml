@@ -4,62 +4,60 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorFondoListaLibros"
+    android:background="@color/colorFondo"
     tools:context=".Fragments.frListaLibros">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="277dp"
+        android:id="@+id/llvFRLL1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="25dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TableRow
-            android:layout_width="match_parent"
+        <ImageView
+            android:id="@+id/imgFRLL"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:src="@drawable/icono_eliminar"
+            android:contentDescription="@string/icono" />
+
+        <TextView
+            android:id="@+id/textView"
+            style="@style/texto"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/borde_lista_libro">
+            android:layout_gravity="center"
+            android:text="@string/sinLibros" />
+    </LinearLayout>
 
-            <AutoCompleteTextView
-                android:id="@+id/edtBuscarFRLL"
-                style="@style/texto"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="@string/tituloLibro"
-                android:inputType="textPersonName"
-                android:textAlignment="center"
-                android:textColor="@color/colorLetraListaLibro"
-                android:textColorHint="@color/colorLetraListaLibro"
-                app:backgroundTint="@color/colorLetraListaLibro"
-                tools:ignore="Autofill" />
+    <LinearLayout
+        android:id="@+id/llvFRLL2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="end">
-
-                <ImageButton
-                    android:id="@+id/imageButton"
-                    android:background="@color/colorBotonListaLibro"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:contentDescription="@string/icono"
-                    android:src="@drawable/icono_buscar4" />
-            </TableRow>
-
-        </TableRow>
-
-        <FrameLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvListaLibrosFRLL"
             android:layout_width="match_parent"
-            android:layout_height="316dp">
+            android:layout_height="match_parent"
+            android:divider="@color/colorLetra"
+            android:dividerHeight="1dp" />
 
-            <ListView
-                android:id="@+id/lvListaLibrosFRLL"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </FrameLayout>
+        <!--<ListView
+            android:id="@+id/lvListaLibrosFRLL"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@color/colorLetra"
+            android:dividerHeight="1dp"/>-->
 
     </LinearLayout>
 

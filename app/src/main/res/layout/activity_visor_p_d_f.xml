@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorFondo"
-    tools:context=".BuscarLibro">
+    tools:context=".VisorPDF">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,18 +14,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <include layout="@layout/barra_herramientas_buscar"
-            android:id="@+id/toolbarBuscar"/>
+        <include layout="@layout/barra_herramientas"
+            android:id="@+id/miBarraHerramientasVPDF"/>
 
-        <include layout="@layout/fragment_fr_lista_libros"
-            android:id="@+id/listaLibrosBL"/>
-
-        <!--<ListView
-            android:id="@+id/lvListaLibrosBL"
+        <com.github.barteksc.pdfviewer.PDFView
+            android:id="@+id/visorPDF"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:divider="@color/colorLetra"
-            android:dividerHeight="1dp"/>-->
+            android:layout_height="match_parent">
 
+        </com.github.barteksc.pdfviewer.PDFView>
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

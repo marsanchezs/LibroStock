@@ -47,6 +47,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //MÉTODOS
+    public void irReportes(View vista){
+        Context contexto = getApplicationContext();
+        Intent intento = new Intent(contexto, Reportes.class);
+        startActivity(intento);
+    }
+
+    public void irEstadisticas(View vista){
+        Context contexto = getApplicationContext();
+        Intent intento = new Intent(contexto, Estadisticas.class);
+        startActivity(intento);
+    }
+
     public void irBuscarLibro(View vista){
         Context contexto = getApplicationContext();
         Intent intento = new Intent(contexto, BuscarLibro.class);
@@ -71,6 +83,12 @@ public class MainActivity extends AppCompatActivity {
     @Override public boolean onOptionsItemSelected(MenuItem opcionMenu){
         int id = opcionMenu.getItemId();
         switch(opcionMenu.getItemId()){
+            case R.id.menuReportes:
+                irReportes(null);
+                return true;
+            case R.id.menuEstadisticas:
+                irEstadisticas(null);
+                return true;
             case R.id.menuBuscar:
                 irBuscarLibro(null);
                 return true;

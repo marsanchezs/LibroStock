@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorFondoAgregarLibro"
+    android:background="@color/colorFondo"
     tools:context=".Fragments.frAgregarLibro">
 
     <!-- TODO: Update blank fragment layout -->
@@ -12,7 +12,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="25dp"
+        android:paddingTop="15dp"
+        android:paddingStart="35dp"
+        android:paddingEnd="35dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -20,68 +22,122 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/borde_libro">
+            android:background="@drawable/borde">
 
             <EditText
                 android:id="@+id/edtTituloLibroFRAL"
                 style="@style/texto"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="45dp"
+                android:textSize="25sp"
                 android:ems="10"
                 android:hint="@string/tituloLibro"
                 android:inputType="textPersonName"
                 android:textAlignment="center"
-                android:textColor="@color/colorLetraAgregarLibro"
-                android:textColorHint="@color/colorLetraAgregarLibro"
                 android:imeOptions="actionNext"
-                app:backgroundTint="@color/colorLetraAgregarLibro"
+                app:backgroundTint="@color/colorLetra"
                 tools:ignore="Autofill" />
+
+            <ImageView
+                android:id="@+id/imgLimpiarTituloFRAL"
+                style="@style/imagen_boton"
+                android:layout_gravity="center_vertical|end"
+                android:contentDescription="@string/icono"
+                android:visibility="gone"
+                app:srcCompat="@drawable/icono_cancelar" />
         </FrameLayout>
 
-        <Space style="@style/espacio" />
+        <Space style="@style/espacio2" />
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/borde_libro">
+            android:background="@drawable/borde">
 
-            <EditText
+            <AutoCompleteTextView
                 android:id="@+id/edtAutorLibroFRAL"
                 style="@style/texto"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="45dp"
+                android:textSize="25sp"
                 android:ems="10"
                 android:hint="@string/autorLibro"
                 android:inputType="textPersonName"
                 android:textAlignment="center"
-                android:textColor="@color/colorLetraAgregarLibro"
-                android:textColorHint="@color/colorLetraAgregarLibro"
                 android:imeOptions="actionNext"
-                app:backgroundTint="@color/colorLetraAgregarLibro"
+                app:backgroundTint="@color/colorLetra"
                 tools:ignore="Autofill" />
+
+            <ImageView
+                android:id="@+id/imgLimpiarAutorFRAL"
+                style="@style/imagen_boton"
+                android:layout_gravity="center_vertical|end"
+                android:contentDescription="@string/icono"
+                android:visibility="gone"
+                app:srcCompat="@drawable/icono_cancelar" />
         </FrameLayout>
 
-        <Space style="@style/espacio" />
+        <Space style="@style/espacio2" />
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/borde_libro">
+            android:background="@drawable/borde">
 
             <AutoCompleteTextView
                 android:id="@+id/edtGeneroLibroFRAL"
                 style="@style/texto"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="45dp"
+                android:textSize="25sp"
                 android:ems="10"
                 android:hint="@string/generoLibro"
                 android:inputType="textPersonName"
                 android:textAlignment="center"
-                android:textColor="@color/colorLetraAgregarLibro"
-                android:textColorHint="@color/colorLetraAgregarLibro"
                 android:imeOptions="actionNext"
-                app:backgroundTint="@color/colorLetraAgregarLibro"
+                app:backgroundTint="@color/colorLetra"
                 tools:ignore="Autofill" />
+
+            <ImageView
+                android:id="@+id/imgLimpiarGeneroFRAL"
+                style="@style/imagen_boton"
+                android:layout_gravity="center_vertical|end"
+                android:contentDescription="@string/icono"
+                android:visibility="gone"
+                app:srcCompat="@drawable/icono_cancelar" />
+        </FrameLayout>
+
+        <Space style="@style/espacio2" />
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/borde"
+            android:layout_gravity="center"
+            android:padding="10dp">
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                tools:ignore="UselessParent">
+
+                <ImageView
+                    android:id="@+id/imgLibroFRAL"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/icono_imagen"
+                    android:contentDescription="@string/icono" />
+
+                <Button
+                    android:id="@+id/btnCamaraFRAL"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/icono_camara"
+                    android:contentDescription="@string/icono" />
+
+            </TableRow>
+
         </FrameLayout>
 
     </LinearLayout>
@@ -100,10 +156,10 @@
             style="@style/boton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/colorBotonAgregarLibro"
+            android:background="@color/colorBoton"
             android:padding="10dp"
             android:text="@string/agregar"
-            android:textColor="@color/colorLetraAgregarLibro" />
+            android:textColor="@color/colorLetra" />
 
     </TableRow>
 
