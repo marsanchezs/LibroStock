@@ -70,6 +70,27 @@ public class LibroStockDelegar {
         return respuesta;
     }
 
+    public String borrarAutor(Context contexto, String nombre, String pais, String sexo){
+        //TABLA AUTORES
+        //db.execSQL("CREATE TABLE AUTORES (Id INTEGER PRIMARY KEY AUTOINCREMENT, NOMBRE TEXT, PAIS TEXT, SEXO TEXT) ");
+        String respuesta = "OK";
+        String name = nombre.replaceAll("'","''");
+        String country = pais.replaceAll("'","''");
+        String sex = sexo.replaceAll("'","''");
+        String condicion = "NOMBRE = '" + name + "' AND PAIS = '"+country+"' " +
+                "AND SEXO = '"+sex+"'";
+        LibroStockOpenHelper adm = new LibroStockOpenHelper(contexto, NOMBRE_BBDD, null, VERSION_BBDD);
+
+        try (SQLiteDatabase bd = adm.getWritableDatabase()) {
+            bd.delete("AUTORES", condicion, null);
+        } catch (Exception e) {
+            e.printStackTrace();
+            respuesta = "NO SE BORRÓ EL AUTOR";
+        }
+        return respuesta;
+    }
+
+
     public String validarLibro(Context contexto, Libro libro){
         String respuesta = "";
         LibroStockOpenHelper admin = new LibroStockOpenHelper(contexto, NOMBRE_BBDD, null, VERSION_BBDD);
@@ -210,6 +231,40 @@ public class LibroStockDelegar {
             bd.close();
         }
         return autores;
+    }
+
+    public ArrayList<Autor> traerAutores2(Context contexto){
+        LibroStockOpenHelper adm = new LibroStockOpenHelper(contexto, NOMBRE_BBDD, null, VERSION_BBDD);
+        SQLiteDatabase bd = adm.getWritableDatabase();
+
+        ArrayList<Autor> listaAutores = new ArrayList<>();
+        String consulta = "SELECT NOMBRE, PAIS, SEXO FROM AUTORES ORDER BY NOMBRE";
+
+        Cursor fila = null;
+        try{
+            Log.e("CONSULTA: ", consulta);
+            fila = bd.rawQuery(consulta, null);
+
+            if (fila.moveToFirst()) {
+                do {
+                    Autor autor = new Autor();
+                    autor.setNombre(fila.getString(0));
+                    autor.setPais(fila.getString(1));
+                    autor.setSexo(fila.getString(2));
+                    listaAutores.add(autor);
+                } while (fila.moveToNext());
+            }
+
+
+        }catch (Exception e){
+            String mensaje = "NO SE OBTUVIERON LOS AUTORES";
+            Log.e("ERROR AUTORES", mensaje, e);
+        }finally {
+            assert fila != null;
+            fila.close();
+            bd.close();
+        }
+        return listaAutores;
     }
 
     public ArrayList<String> traerGeneros(Context contexto){

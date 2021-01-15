@@ -16,7 +16,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Estadisticas"></activity>
+        <activity
+            android:name=".DetalleAutor"
+            android:theme="@style/AppTheme.TemaPopup"/>
+        <activity android:name=".Estadisticas" />
         <activity android:name=".VisorPDF" />
         <activity android:name=".Reportes" />
         <activity android:name=".DetalleLibro" />

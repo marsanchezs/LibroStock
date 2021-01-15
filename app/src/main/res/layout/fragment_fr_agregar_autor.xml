@@ -8,140 +8,184 @@
     tools:context=".Fragments.frAgregarAutor">
 
     <!-- TODO: Update blank fragment layout -->
+
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingTop="15dp"
-        android:paddingStart="35dp"
-        android:paddingEnd="35dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <FrameLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/borde">
+            android:paddingStart="35dp"
+            android:paddingTop="15dp"
+            android:paddingEnd="35dp"
+            android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/edtNombreAutorFRAA"
-                style="@style/texto"
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:textSize="25sp"
-                android:ems="10"
-                android:hint="@string/nombreAutor"
-                android:inputType="textPersonName"
-                android:textAlignment="center"
-                android:imeOptions="actionNext"
-                app:backgroundTint="@color/colorLetra"
-                tools:ignore="Autofill" />
+                android:layout_height="wrap_content"
+                android:background="@drawable/borde">
 
-            <ImageView
-                android:id="@+id/imgLimpiarNombreFRAA"
-                style="@style/imagen_boton"
-                android:layout_gravity="center_vertical|end"
-                android:contentDescription="@string/icono"
-                android:visibility="gone"
-                app:srcCompat="@drawable/icono_cancelar" />
-        </FrameLayout>
+                <EditText
+                    android:id="@+id/edtNombreAutorFRAA"
+                    style="@style/texto"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:ems="10"
+                    android:hint="@string/nombreAutor"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPersonName"
+                    android:textAlignment="center"
+                    android:textSize="25sp"
+                    app:backgroundTint="@color/colorLetra"
+                    tools:ignore="Autofill" />
 
-        <Space style="@style/espacio2" />
+                <ImageView
+                    android:id="@+id/imgLimpiarNombreFRAA"
+                    style="@style/imagen_boton"
+                    android:layout_gravity="center_vertical|end"
+                    android:contentDescription="@string/icono"
+                    android:visibility="gone"
+                    app:srcCompat="@drawable/icono_cancelar" />
+            </FrameLayout>
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/borde">
+            <Space style="@style/espacio2" />
 
-            <AutoCompleteTextView
-                android:id="@+id/edtPaisAutorFRAA"
-                style="@style/texto"
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:textSize="25sp"
-                android:ems="10"
-                android:hint="@string/paisAutor"
-                android:inputType="textPersonName"
-                android:textAlignment="center"
-                android:imeOptions="actionNext"
-                app:backgroundTint="@color/colorLetra"
-                tools:ignore="Autofill" />
+                android:layout_height="wrap_content"
+                android:background="@drawable/borde">
 
-            <ImageView
-                android:id="@+id/imgLimpiarPaisFRAA"
-                style="@style/imagen_boton"
-                android:layout_gravity="center_vertical|end"
-                android:contentDescription="@string/icono"
-                android:visibility="gone"
-                app:srcCompat="@drawable/icono_cancelar" />
-        </FrameLayout>
+                <AutoCompleteTextView
+                    android:id="@+id/edtPaisAutorFRAA"
+                    style="@style/texto"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:ems="10"
+                    android:hint="@string/paisAutor"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPersonName"
+                    android:textAlignment="center"
+                    android:textSize="25sp"
+                    app:backgroundTint="@color/colorLetra"
+                    tools:ignore="Autofill" />
 
-        <Space style="@style/espacio2" />
+                <ImageView
+                    android:id="@+id/imgLimpiarPaisFRAA"
+                    style="@style/imagen_boton"
+                    android:layout_gravity="center_vertical|end"
+                    android:contentDescription="@string/icono"
+                    android:visibility="gone"
+                    app:srcCompat="@drawable/icono_cancelar" />
+            </FrameLayout>
 
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/borde"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:layout_gravity="center">
+            <Space style="@style/espacio2" />
 
-            <TextView
-                android:id="@+id/txtSexoFRAA"
-                style="@style/texto"
+            <TableRow
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:textSize="25sp"
-                android:text="@string/sexo" />
+                android:layout_gravity="center"
+                android:background="@drawable/borde"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp">
 
-            <RadioGroup
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
-
-                <RadioButton
-                    android:id="@+id/rbMasculinoFRAL"
+                <TextView
+                    android:id="@+id/txtSexoFRAA"
                     style="@style/texto"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="25sp"
-                    android:text="@string/masculino"
-                    android:checked="true"
-                    app:buttonTint="@color/colorLetra" />
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/sexo"
+                    android:textSize="25sp" />
 
-                <RadioButton
-                    android:id="@+id/rbFemeninoFRAL"
-                    style="@style/texto"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="25sp"
-                    android:text="@string/femenino"
-                    app:buttonTint="@color/colorLetra" />
-            </RadioGroup>
-        </TableRow>
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:id="@+id/rbMasculinoFRAL"
+                        style="@style/texto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="@string/masculino"
+                        android:textSize="25sp"
+                        app:buttonTint="@color/colorLetra" />
+
+                    <RadioButton
+                        android:id="@+id/rbFemeninoFRAL"
+                        style="@style/texto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/femenino"
+                        android:textSize="25sp"
+                        app:buttonTint="@color/colorLetra" />
+                </RadioGroup>
+
+            </TableRow>
+
+        </LinearLayout>
+
+        <Space style="@style/espacio2" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            tools:ignore="UselessParent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvAutoresFRAA"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </ScrollView>
 
     </LinearLayout>
 
-    <TableRow
-        android:layout_width="wrap_content"
+    <!--<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+
+
+    </LinearLayout>-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:layout_gravity="center"
+        android:background="@color/colorFondo"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <Button
-            android:id="@+id/btnAgregarFRAA"
-            android:background="@color/colorBoton"
-            style="@style/boton"
+        <TableRow
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:textColor="@color/colorLetra"
-            android:text="@string/agregar" />
+            android:layout_gravity="center"
+            android:padding="10dp">
 
-    </TableRow>
+            <Button
+                android:id="@+id/btnAgregarFRAA"
+                style="@style/boton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/colorBoton"
+                android:padding="10dp"
+                android:text="@string/agregar"
+                android:textColor="@color/colorLetra" />
+
+        </TableRow>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

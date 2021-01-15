@@ -1,15 +1,20 @@
 package com.example.librostock.Fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Parcelable;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,20 +24,27 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import com.example.librostock.Adaptadores.AdaptadorRecycler;
+import com.example.librostock.Adaptadores.AdaptadorRecyclerAutores;
 import com.example.librostock.BBDD.LibroStockDelegar;
+import com.example.librostock.DetalleAutor;
+import com.example.librostock.DetalleLibro;
 import com.example.librostock.MainActivity;
 import com.example.librostock.Objetos.Autor;
+import com.example.librostock.Objetos.Libro;
 import com.example.librostock.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class frAgregarAutor extends Fragment {
+public class frAgregarAutor extends Fragment implements AdaptadorRecyclerAutores.clickAutor{
 
     private AutoCompleteTextView edtPaisAutor;
     private Button btnAgregarAutor;
@@ -40,6 +52,15 @@ public class frAgregarAutor extends Fragment {
     private RadioButton rbMasculino, rbFemenino;
     private ImageView imgLimpiarNombre, imgLimpiarPais;
     private LibroStockDelegar delegar = new LibroStockDelegar();
+    private RecyclerView rvListaAutores;
+    private Toast miMensaje;
+
+    // Interfaz Actualizar
+    public interface Actualizar{
+
+        // Método de la interfaz
+        void cargarRecycler();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -54,6 +75,10 @@ public class frAgregarAutor extends Fragment {
         imgLimpiarNombre = (ImageView) vista.findViewById(R.id.imgLimpiarNombreFRAA);
         imgLimpiarPais = (ImageView) vista.findViewById(R.id.imgLimpiarPaisFRAA);
         btnAgregarAutor = (Button) vista.findViewById(R.id.btnAgregarFRAA);
+        rvListaAutores = (RecyclerView) vista.findViewById(R.id.rvAutoresFRAA);
+        LinearLayoutManager admDisenoLineal = new LinearLayoutManager(getActivity());
+        rvListaAutores.setLayoutManager(admDisenoLineal);
+        cargarRecyclerView();
 
         edtNombreAutor.requestFocus();
 
@@ -65,12 +90,47 @@ public class frAgregarAutor extends Fragment {
 
         traerPaises();
         mostrarBotonesLimpiar();
+        cargarRecyclerView();
 
         // Inflate the layout for this fragment
         return vista;
     }
 
     //MÉTODOS
+    public void cargarRecyclerView(){
+        ArrayList<Autor> lista = delegar.traerAutores2(getActivity());
+        AdaptadorRecyclerAutores adaptador = new AdaptadorRecyclerAutores(getActivity(), lista, this, rvListaAutores);
+        rvListaAutores.setAdapter(adaptador);
+    }
+
+    @Override
+    public void clickListaAutor(int clickedAutor) {
+        ArrayList<Autor> lista = delegar.traerAutores2(getActivity());
+        if(miMensaje != null){
+            miMensaje.cancel();
+        }
+        String autor = lista.get(clickedAutor).getNombre();
+        String pais = lista.get(clickedAutor).getPais();
+        String sexo = lista.get(clickedAutor).getSexo();
+
+        irDetalleAutor(autor, pais, sexo);
+
+        /*String mensaje = " SELECCIONADO";
+        miMensaje = Toast.makeText(getActivity(), mensaje, Toast.LENGTH_LONG);
+        miMensaje.show();*/
+    }
+
+    private void irDetalleAutor(String autor, String pais, String sexo){
+        Bundle datosAutor = new Bundle();
+        datosAutor.putString("Autor", autor);
+        datosAutor.putString("Pais", pais);
+        datosAutor.putString("Sexo", sexo);
+        Context contexto = getActivity();
+        Intent intento = new Intent(contexto, DetalleAutor.class);
+        intento.putExtras(datosAutor);
+        startActivity(intento);
+    }
+
     private void mostrarBotonesLimpiar(){
         mostrarBotonLimpiarNombre();
         mostrarBotonLimpiarPais();
@@ -198,6 +258,7 @@ public class frAgregarAutor extends Fragment {
                 }else if(autor.getSexo().equals("Femenino")){
                     mensaje = autor.getNombre().toUpperCase()+" HA SIDO AGREGADA";
                 }
+                cargarRecyclerView();
                 Toast.makeText(contexto, mensaje, Toast.LENGTH_SHORT).show();
                 limpiar();
             }else{
@@ -236,6 +297,17 @@ public class frAgregarAutor extends Fragment {
         edtNombreAutor.setText("");
         edtPaisAutor.setText("");
         edtNombreAutor.requestFocus();
+    }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if (isVisibleToUser) {
+            // Refresh your fragment here
+            assert getFragmentManager() != null;
+            getFragmentManager().beginTransaction().detach(this).attach(this).commit();
+            Log.i("ACTUALIZADO", "OK");
+        }
     }
 
 }

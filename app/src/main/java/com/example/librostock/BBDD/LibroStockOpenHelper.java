@@ -38,8 +38,8 @@ public class LibroStockOpenHelper extends SQLiteOpenHelper {
     }
 
     private void cargarAutores(SQLiteDatabase db){
-        db.execSQL("INSERT INTO AUTORES (NOMBRE, PAIS, SEXO) VALUES ('Anónimo', 'N/A', 'N/A')");
-        db.execSQL("INSERT INTO AUTORES (NOMBRE, PAIS, SEXO) VALUES ('Varios Autores', 'N/A', 'N/A')");
+        db.execSQL("INSERT INTO AUTORES (NOMBRE, PAIS, SEXO) VALUES ('anónimo', 'N/A', 'N/A')");
+        db.execSQL("INSERT INTO AUTORES (NOMBRE, PAIS, SEXO) VALUES ('varios autores', 'N/A', 'N/A')");
     }
 
     private void cargarGeneros(SQLiteDatabase db){

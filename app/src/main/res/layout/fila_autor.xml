@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:descendantFocusability="blocksDescendants">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvAutorFA"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/selector"
+            android:descendantFocusability="blocksDescendants">
+
+            <ImageView
+                android:id="@+id/imgAutorFA"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="10dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/icono_autorh"
+                android:contentDescription="@string/icono" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:descendantFocusability="blocksDescendants"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtAutorFA"
+                    style="@style/texto"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/autorFL"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:id="@+id/txtPaisFA"
+                    style="@style/texto"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pais"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/txtSexoFA"
+                    style="@style/texto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sexo"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:gravity="end"
+                    tools:ignore="UselessParent">
+
+                    <ImageButton
+                        android:id="@+id/btnEditarFA"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:adjustViewBounds="true"
+                        android:background="@color/colorFondo"
+                        android:contentDescription="@string/icono"
+                        android:scaleType="centerCrop"
+                        app:srcCompat="@drawable/icono_editar" />
+
+                    <ImageButton
+                        android:id="@+id/btnEliminarFA"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="10dp"
+                        android:adjustViewBounds="true"
+                        android:background="@color/colorFondo"
+                        android:contentDescription="@string/icono"
+                        android:gravity="end"
+                        android:scaleType="centerCrop"
+                        app:srcCompat="@drawable/icono_eliminar" />
+                </TableRow>
+
+            </TableRow>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <View
+        android:id="@+id/linea"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorLetra" />
+
+</LinearLayout>
